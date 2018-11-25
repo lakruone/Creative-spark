@@ -1,0 +1,38 @@
+CREATE TABLE company (
+    companyID int NOT NULL AUTO_INCREMENT,
+    companyName varchar(255) NOT NULL,
+    companyEmail varchar(100),
+    PRIMARY KEY (companyID)
+);
+
+CREATE TABLE employee (
+    empID int NOT NULL AUTO_INCREMENT,
+    companyID int NOT NULL,
+    empName varchar(255) NOT NULL,
+    email varchar(100),
+    PRIMARY KEY (empID),
+    FOREIGN KEY (companyID) REFERENCES company(companyID)
+);
+
+INSERT INTO company (companyName,companyEmail)
+VALUES ("nexgenITs", "nex@gmail.com");
+
+INSERT INTO employee
+VALUES (1,1,"Samarasinghe", "samare@gmail.com");
+
+INSERT INTO employee (companyID,empName,email)
+VALUES (1,"Samarasinghe", "samare@gmail.com"); 
+
+ALTER TABLE company
+ADD password varchar(255);
+
+UPDATE company
+SET password = 'lakruwan'
+WHERE companyID = 2;
+
+
+select e.empName 
+from employee e, company c 
+where e.companyID = c.companyID AND c.companyName="SparkIT" 
+	AND e.email ="samare@gmail.com" 
+	AND e.password="lakru";

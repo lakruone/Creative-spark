@@ -1,0 +1,22 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "creative spark project 1",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lakruwan",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-flash-messages": "^0.1.1",
+    "express-session": "^1.15.6",
+    "mysql": "github:mysqljs/mysql",
+    "mysql-pool": "^0.2.2",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  }
+}
