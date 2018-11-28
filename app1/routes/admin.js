@@ -3,9 +3,24 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const User = require('../models/adminQuery');
 
+//company home
+router.get('/',(req,res) =>{
+  res.send("Company home - Not designed yet");
+});
+
+//go to company profile
+router.get('/profile/:companyName',(req,res) =>{
+  const companyName =  req.params.companyName;
+  User.companyDetails(companyName, (err,result) =>{
+    if(err) throw err;
+    if(result){
+      res.json(result);
+    }
+  });
+});
 
 
-
+//registering the company
 router.post("/register", (req,res) => {
   const companyName = req.body.companyName;
   const companyEmail = req.body.companyEmail;

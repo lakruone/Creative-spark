@@ -4,12 +4,10 @@ const pool = require('../config/database');
 module.exports.saveCompany = (companyName,companyEmail,password) => {
   const qry = "insert into company (companyName,companyEmail,password) values (?,?,?)";
 
-
   pool.query(qry,[companyName,companyEmail,password], (err,result) => {
     if (err) throw err;
     else{
       console.log("data inserted successfully");
-
       return;
     }
   });
@@ -31,4 +29,15 @@ module.exports.checkEmail =(companyEmail, statusCallback) =>{
       }
   });
 
+}
+
+//get company company details
+module.exports.companyDetails = (companyName, callback) =>{
+  const qry = "select * from company where companyName =?";
+  pool.query(qry,[companyName], (err,result) =>{
+    if (err) throw err;
+    if(result){
+      return callback(null,result[0]);
+    }
+  });
 }
